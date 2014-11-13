@@ -82,7 +82,16 @@ namespace ScheduleDrawer
                     combinations.RemoveAll(c => c.Home == match.Home && c.Away == match.Away);
                 }
 
-                round++;
+                if (schedule.Count(m => m.Round == round) != _players.Count/2)
+                {
+                    combinations = allCombinations.ToList();
+                    schedule = new List<Match>();
+                    round = 1;
+                }
+                else
+                {
+                    round++;
+                }
             }
 
             return schedule.OrderBy(m => m.Round).Where(m => !string.IsNullOrEmpty(m.Home) && !string.IsNullOrEmpty(m.Away));
