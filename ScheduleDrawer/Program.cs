@@ -1,5 +1,12 @@
-﻿using System;
+﻿using Ninject;
+using ScheduleDrawer.BusinessLayer;
+using ScheduleDrawer.BusinessLayer.Schedule;
+using ScheduleDrawer.Entities;
+using ScheduleDrawer.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 
 namespace ScheduleDrawer
@@ -8,23 +15,34 @@ namespace ScheduleDrawer
     {
         static void Main(string[] args)
         {
-            var players = new List<string>
-            {
-                "Mateusz Wilk",
-                "Witold Bulak",
-                "Tomasz Chocyk",
-                "Adam Kotas",
-                "Paweł Podsiadło",
-                "Dawid Pilak",
-                "Jakub Hutny"
-            };
 
-            var scheduleCreator = new ScheduleCreator(players);
+            //try
+            //{
+                IKernel kernel = new StandardKernel(new ScheduleDrawerModule());
+                
+                var playerManager = new PlayerManager(kernel.Get<IPlayerService>());
+                var players = playerManager.GetAll();
+
+                var scheduleCreator = new ScheduleCreator(players);
+                var scheduleManager = new ScheduleManager(scheduleCreator, kernel.Get<IScheduleService>());
+
+                var schedule = scheduleManager.Create(true);
+
+                PrintSchedules(schedule.Matches);
+                scheduleManager.Save(schedule);
+            //}
+            //catch(Exception e)
+            //{
+            //    Console.WriteLine(string.Format("{0} {1}", "There was an error during the program execution.", e.Message));
+            //}
+
+            Console.ReadKey();
             
-            PrintSchedule(scheduleCreator.CreateSchedule(true));
         }
 
-        private static void PrintSchedule(IEnumerable<Match> scheduleList)
+        
+
+        private static void PrintSchedules(IEnumerable<Match> scheduleList)
         {
             if (scheduleList == null)
             {
@@ -38,14 +56,14 @@ namespace ScheduleDrawer
 
                 foreach (var matchInfo in scheduleList.Where(x => x.Round == round))
                 {
-                    Console.WriteLine(string.Format("{0} - {1}", matchInfo.Home, matchInfo.Away));
+                    Console.WriteLine(string.Format("{0} - {1}", matchInfo.Home.Name, matchInfo.Away.Name));
                 }
 
                 Console.WriteLine();
                 Console.WriteLine();
             }
 
-            Console.ReadKey();
         }
+
     }
 }

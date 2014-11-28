@@ -1,19 +1,32 @@
-﻿using System;
+﻿using ScheduleDrawer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScheduleDrawer
+namespace ScheduleDrawer.BusinessLayer
 {
     public class ScheduleCreator
     {
-        private readonly List<string> _players; 
+        private readonly List<Player> _players; 
 
-        public ScheduleCreator(IEnumerable<string> players)
+        public ScheduleCreator(IEnumerable<Player> players)
         {
+            if(players == null)
+            {
+                throw new ArgumentNullException("players", "Parameter 'players' cannot be null");
+            }
             _players = DrawPlayersOrder(players).ToList();
         }
 
-        public IEnumerable<Match> CreateSchedule(bool revangeRound)
+        public Entities.Schedule Create(bool revangeRound)
+        {
+            var schedule = new Entities.Schedule();
+            schedule.Matches.AddRange(CreateScheduleMatches(revangeRound));
+
+            return schedule;
+        }
+
+        public IEnumerable<Match> CreateScheduleMatches(bool revangeRound)
         {
             var allCombinations = CreateAllCombinations();
             var scheduleWithoutRevange = DrawSchedule(allCombinations);
@@ -21,16 +34,16 @@ namespace ScheduleDrawer
             return revangeRound ? AddRevangeRounds(scheduleWithoutRevange) : scheduleWithoutRevange;
         }
 
-        private IEnumerable<string> DrawPlayersOrder(IEnumerable<string> players)
+        private IEnumerable<Player> DrawPlayersOrder(IEnumerable<Player> players)
         {
             var allPlayers = players.ToList();
 
             if (allPlayers.Count % 2 > 0)
             {
-                allPlayers.Add(string.Empty);
+                allPlayers.Add(new Player());
             }
 
-            var playersInOrder = new List<string>();
+            var playersInOrder = new List<Player>();
             var seed = (int)DateTime.Now.Ticks;
             var rand = new Random(seed);
 
@@ -85,7 +98,7 @@ namespace ScheduleDrawer
                 round++;
             }
 
-            return schedule.OrderBy(m => m.Round).Where(m => !string.IsNullOrEmpty(m.Home) && !string.IsNullOrEmpty(m.Away));
+            return schedule.OrderBy(m => m.Round).Where(m => m.Home != null && m.Away != null);
         }
 
         private IEnumerable<Match> AddRevangeRounds(IEnumerable<Match> scheduleWithoutRevange)
