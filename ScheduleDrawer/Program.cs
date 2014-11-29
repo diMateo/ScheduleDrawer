@@ -16,8 +16,8 @@ namespace ScheduleDrawer
         static void Main(string[] args)
         {
 
-            //try
-            //{
+            try
+            {
                 IKernel kernel = new StandardKernel(new ScheduleDrawerModule());
                 
                 var playerManager = new PlayerManager(kernel.Get<IPlayerService>());
@@ -30,11 +30,11 @@ namespace ScheduleDrawer
 
                 PrintSchedules(schedule.Matches);
                 scheduleManager.Save(schedule);
-            //}
-            //catch(Exception e)
-            //{
-            //    Console.WriteLine(string.Format("{0} {1}", "There was an error during the program execution.", e.Message));
-            //}
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(string.Format("{0} {1}", "There was an error during the program execution.", e.Message));
+            }
 
             Console.ReadKey();
             
