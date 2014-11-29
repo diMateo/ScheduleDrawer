@@ -21,7 +21,12 @@ namespace ScheduleDrawer.BusinessLayer
         public Entities.Schedule Create(bool revengeRound)
         {
             var schedule = new Entities.Schedule();
-            schedule.Matches.Concat(CreateScheduleMatches(revengeRound));
+            var matches = CreateScheduleMatches(revengeRound);
+            
+            foreach(var match in matches)
+            {
+                schedule.Matches.Add(match);
+            }
 
             return schedule;
         }

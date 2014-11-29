@@ -9,7 +9,7 @@ namespace ScheduleDrawer.Entities
     public class Schedule
     {
         private IList<Match> _matches = new List<Match>();
-        public IEnumerable<Match> Matches 
+        public IList<Match> Matches 
         { 
             get
             {
