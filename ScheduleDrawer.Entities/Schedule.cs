@@ -8,8 +8,8 @@ namespace ScheduleDrawer.Entities
 {
     public class Schedule
     {
-        private List<Match> _matches = new List<Match>();
-        public List<Match> Matches 
+        private IList<Match> _matches = new List<Match>();
+        public IEnumerable<Match> Matches 
         { 
             get
             {

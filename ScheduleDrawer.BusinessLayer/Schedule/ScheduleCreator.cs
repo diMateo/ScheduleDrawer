@@ -18,23 +18,23 @@ namespace ScheduleDrawer.BusinessLayer
             _players = DrawPlayersOrder(players).ToList();
         }
 
-        public Entities.Schedule Create(bool revangeRound)
+        public Entities.Schedule Create(bool revengeRound)
         {
             var schedule = new Entities.Schedule();
-            schedule.Matches.AddRange(CreateScheduleMatches(revangeRound));
+            schedule.Matches.Concat(CreateScheduleMatches(revengeRound));
 
             return schedule;
         }
 
-        public IEnumerable<Match> CreateScheduleMatches(bool revangeRound)
+        public IEnumerable<Match> CreateScheduleMatches(bool revengeRound)
         {
             var allCombinations = CreateAllCombinations();
-            var scheduleWithoutRevange = DrawSchedule(allCombinations);
+            var scheduleWithoutrevenge = DrawSchedule(allCombinations);
 
-            return revangeRound ? AddRevangeRounds(scheduleWithoutRevange) : scheduleWithoutRevange;
+            return revengeRound ? AddrevengeRounds(scheduleWithoutrevenge) : scheduleWithoutrevenge;
         }
 
-        private IEnumerable<Player> DrawPlayersOrder(IEnumerable<Player> players)
+        private static IEnumerable<Player> DrawPlayersOrder(IEnumerable<Player> players)
         {
             var allPlayers = players.ToList();
 
@@ -72,7 +72,7 @@ namespace ScheduleDrawer.BusinessLayer
             }
         }
 
-        private IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
+        private static IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
         {
             var combinations = allCombinations.ToList();
             var schedule = new List<Match>();
@@ -101,14 +101,14 @@ namespace ScheduleDrawer.BusinessLayer
             return schedule.OrderBy(m => m.Round).Where(m => m.Home != null && m.Away != null);
         }
 
-        private IEnumerable<Match> AddRevangeRounds(IEnumerable<Match> scheduleWithoutRevange)
+        private static IEnumerable<Match> AddrevengeRounds(IEnumerable<Match> scheduleWithoutrevenge)
         {
-            var maxRound = scheduleWithoutRevange.Max(m => m.Round);
-            var scheduleWithRevange = new List<Match>(scheduleWithoutRevange);
+            var maxRound = scheduleWithoutrevenge.Max(m => m.Round);
+            var scheduleWithrevenge = new List<Match>(scheduleWithoutrevenge);
 
-            foreach (var match in scheduleWithoutRevange)
+            foreach (var match in scheduleWithoutrevenge)
             {
-                scheduleWithRevange.Add(new Match
+                scheduleWithrevenge.Add(new Match
                                         {
                                             Home = match.Away,
                                             Away = match.Home,
@@ -116,7 +116,7 @@ namespace ScheduleDrawer.BusinessLayer
                                         });
             }
 
-            return scheduleWithRevange;
+            return scheduleWithrevenge;
         }
     }
 }
