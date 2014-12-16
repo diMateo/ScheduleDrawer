@@ -1,36 +1,54 @@
-﻿using System;
+﻿using ScheduleDrawer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScheduleDrawer
+namespace ScheduleDrawer.BusinessLayer
 {
     public class ScheduleCreator
     {
-        private readonly List<string> _players; 
+        private readonly List<Player> _players; 
 
-        public ScheduleCreator(IEnumerable<string> players)
+        public ScheduleCreator(IEnumerable<Player> players)
         {
+            if(players == null)
+            {
+                throw new ArgumentNullException("players", "Parameter 'players' cannot be null");
+            }
             _players = DrawPlayersOrder(players).ToList();
         }
 
-        public IEnumerable<Match> CreateSchedule(bool revangeRound)
+        public Entities.Schedule Create(bool revengeRound)
         {
-            var allCombinations = CreateAllCombinations();
-            var scheduleWithoutRevange = DrawSchedule(allCombinations);
+            var schedule = new Entities.Schedule();
+            var matches = CreateScheduleMatches(revengeRound);
+            
+            foreach(var match in matches)
+            {
+                schedule.Matches.Add(match);
+            }
 
-            return revangeRound ? AddRevangeRounds(scheduleWithoutRevange) : scheduleWithoutRevange;
+            return schedule;
         }
 
-        private IEnumerable<string> DrawPlayersOrder(IEnumerable<string> players)
+        public IEnumerable<Match> CreateScheduleMatches(bool revengeRound)
+        {
+            var allCombinations = CreateAllCombinations();
+            var scheduleWithoutrevenge = DrawSchedule(allCombinations);
+
+            return revengeRound ? AddrevengeRounds(scheduleWithoutrevenge) : scheduleWithoutrevenge;
+        }
+
+        private static IEnumerable<Player> DrawPlayersOrder(IEnumerable<Player> players)
         {
             var allPlayers = players.ToList();
 
             if (allPlayers.Count % 2 > 0)
             {
-                allPlayers.Add(string.Empty);
+                allPlayers.Add(new Player());
             }
 
-            var playersInOrder = new List<string>();
+            var playersInOrder = new List<Player>();
             var seed = (int)DateTime.Now.Ticks;
             var rand = new Random(seed);
 
@@ -59,7 +77,7 @@ namespace ScheduleDrawer
             }
         }
 
-        private IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
+        private static IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
         {
             var combinations = allCombinations.ToList();
             var schedule = new List<Match>();
@@ -94,17 +112,17 @@ namespace ScheduleDrawer
                 }
             }
 
-            return schedule.OrderBy(m => m.Round).Where(m => !string.IsNullOrEmpty(m.Home) && !string.IsNullOrEmpty(m.Away));
+            return schedule.OrderBy(m => m.Round).Where(m => m.Home != null && m.Away != null);
         }
 
-        private IEnumerable<Match> AddRevangeRounds(IEnumerable<Match> scheduleWithoutRevange)
+        private static IEnumerable<Match> AddrevengeRounds(IEnumerable<Match> scheduleWithoutrevenge)
         {
-            var maxRound = scheduleWithoutRevange.Max(m => m.Round);
-            var scheduleWithRevange = new List<Match>(scheduleWithoutRevange);
+            var maxRound = scheduleWithoutrevenge.Max(m => m.Round);
+            var scheduleWithrevenge = new List<Match>(scheduleWithoutrevenge);
 
-            foreach (var match in scheduleWithoutRevange)
+            foreach (var match in scheduleWithoutrevenge)
             {
-                scheduleWithRevange.Add(new Match
+                scheduleWithrevenge.Add(new Match
                                         {
                                             Home = match.Away,
                                             Away = match.Home,
@@ -112,7 +130,7 @@ namespace ScheduleDrawer
                                         });
             }
 
-            return scheduleWithRevange;
+            return scheduleWithrevenge;
         }
     }
 }

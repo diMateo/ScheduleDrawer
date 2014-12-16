@@ -1,0 +1,36 @@
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe.config
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.pdb
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.csprojResolveAssemblyReference.cache
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.exe
+E:\MyTestApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.pdb
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe.config
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.exe
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.pdb
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.pdb
+c:\Users\Mateusz\Documents\Visual Studio 2012\Projects\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.csprojResolveAssemblyReference.cache
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe.config
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.exe
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.pdb
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.pdb
+E:\MyApps\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.csprojResolveAssemblyReference.cache
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe.config
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.exe
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.csprojResolveAssemblyReference.cache
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Entities.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Entities.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.BusinessLayer.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.BusinessLayer.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.DataLayer.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Interfaces.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Common.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.DataLayer.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Interfaces.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.Common.pdb
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\Ninject.dll
+E:\Code\Repositories\ScheduleDrawer\ScheduleDrawer\bin\Debug\Ninject.xml
