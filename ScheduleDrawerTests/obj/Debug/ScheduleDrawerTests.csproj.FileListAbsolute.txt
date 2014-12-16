@@ -1,0 +1,9 @@
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\ScheduleDrawerTests.dll
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\ScheduleDrawerTests.pdb
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\nunit.framework.dll
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\nunit.framework.xml
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\obj\Debug\ScheduleDrawerTests.csprojResolveAssemblyReference.cache
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\obj\Debug\ScheduleDrawerTests.dll
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\obj\Debug\ScheduleDrawerTests.pdb
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\ScheduleDrawer.exe
+D:\Projekty\ScheduleDrawer\ScheduleDrawerTests\bin\Debug\ScheduleDrawer.pdb

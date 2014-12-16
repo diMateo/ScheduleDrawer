@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ScheduleDrawer.Entities;
 
-namespace ScheduleDrawer
+namespace ScheduleDrawer.Schedule
 {
-    public class ScheduleCreator
+    internal class ScheduleCreator
     {
-        private readonly List<string> _players; 
+        private List<string> _players;
 
-        public ScheduleCreator(IEnumerable<string> players)
+        public IEnumerable<Match> CreateSchedule(IEnumerable<string> players, bool revangeRound)
         {
             _players = DrawPlayersOrder(players).ToList();
-        }
-
-        public IEnumerable<Match> CreateSchedule(bool revangeRound)
-        {
             var allCombinations = CreateAllCombinations();
             var scheduleWithoutRevange = DrawSchedule(allCombinations);
 

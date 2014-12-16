@@ -41,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Match.cs" />
+    <Compile Include="Csv\CsvProcessor.cs" />
+    <Compile Include="Entities\Match.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScheduleCreator.cs" />
+    <Compile Include="Schedule\ScheduleConverter.cs" />
+    <Compile Include="Schedule\ScheduleCreator.cs" />
+    <Compile Include="Schedule\ScheduleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Results\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

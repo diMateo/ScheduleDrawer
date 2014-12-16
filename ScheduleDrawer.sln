@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleDrawer", "ScheduleDrawer\ScheduleDrawer.csproj", "{CC29CF82-ABDB-41F8-9F86-C68E80239714}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleDrawerTests", "ScheduleDrawerTests\ScheduleDrawerTests.csproj", "{77921166-0F1E-4E36-989F-5BDA935EEF03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CC29CF82-ABDB-41F8-9F86-C68E80239714}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC29CF82-ABDB-41F8-9F86-C68E80239714}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC29CF82-ABDB-41F8-9F86-C68E80239714}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77921166-0F1E-4E36-989F-5BDA935EEF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77921166-0F1E-4E36-989F-5BDA935EEF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77921166-0F1E-4E36-989F-5BDA935EEF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77921166-0F1E-4E36-989F-5BDA935EEF03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

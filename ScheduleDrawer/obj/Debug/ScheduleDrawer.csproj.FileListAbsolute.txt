@@ -1,0 +1,6 @@
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe.config
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.csprojResolveAssemblyReference.cache
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.exe
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\bin\Debug\ScheduleDrawer.pdb
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.exe
+D:\Projekty\ScheduleDrawer\ScheduleDrawer\obj\Debug\ScheduleDrawer.pdb

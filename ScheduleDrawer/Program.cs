@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ScheduleDrawer.Csv;
+using ScheduleDrawer.Entities;
+using ScheduleDrawer.Schedule;
 
 namespace ScheduleDrawer
 {
@@ -10,18 +13,21 @@ namespace ScheduleDrawer
         {
             var players = new List<string>
             {
-                "Mateusz Wilk",
-                "Witold Bulak",
-                "Tomasz Chocyk",
-                "Adam Kotas",
-                "Paweł Podsiadło",
-                "Dawid Pilak",
-                "Jakub Hutny"
+                "Mateusz W",
+                "Witold B",
+                "Tomasz Ch",
+                "Adam K",
+                "Paweł P",
+                "Dawid P",
+                "Jakub H"
             };
 
-            var scheduleCreator = new ScheduleCreator(players);
-            
-            PrintSchedule(scheduleCreator.CreateSchedule(true));
+            var scheduleManager = new ScheduleManager();
+
+            var scheduleList = scheduleManager.CreateSchedule(players, true);
+            scheduleManager.SaveScheduleToCsv("SuperLeague", scheduleList);
+
+            PrintSchedule(scheduleList);
         }
 
         private static void PrintSchedule(IEnumerable<Match> scheduleList)
