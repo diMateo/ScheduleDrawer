@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC29CF82-ABDB-41F8-9F86-C68E80239714}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{4AD01573-6A6D-483D-8AAE-4D032B4D03BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScheduleDrawer</RootNamespace>
-    <AssemblyName>ScheduleDrawer</AssemblyName>
+    <RootNamespace>ScheduleDrawer.Common</RootNamespace>
+    <AssemblyName>ScheduleDrawer.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,11 +20,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>ExtendedDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ExtendedDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,36 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Modules\ScheduleDrawerModule.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="Csv\CsvFile.cs" />
+    <Compile Include="Csv\CsvHeaders.cs" />
+    <Compile Include="Csv\CsvLine.cs" />
+    <Compile Include="FileHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ScheduleDrawer.BusinessLayer\ScheduleDrawer.BusinessLayer.csproj">
-      <Project>{f04bf852-a435-4d27-8ef0-7119c959b239}</Project>
-      <Name>ScheduleDrawer.BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleDrawer.Common\ScheduleDrawer.Common.csproj">
-      <Project>{4ad01573-6a6d-483d-8aae-4d032b4d03ba}</Project>
-      <Name>ScheduleDrawer.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleDrawer.DataLayer\ScheduleDrawer.DataLayer.csproj">
-      <Project>{ae49b52e-ac13-4e4c-8d60-64bc809b4187}</Project>
-      <Name>ScheduleDrawer.DataLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleDrawer.Entities\ScheduleDrawer.Entities.csproj">
-      <Project>{30c1a4dc-5e47-4e37-8650-b4540fbc8ff9}</Project>
-      <Name>ScheduleDrawer.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleDrawer.Interfaces\ScheduleDrawer.Interfaces.csproj">
-      <Project>{6dd60439-cf82-4671-832a-a90b81709392}</Project>
-      <Name>ScheduleDrawer.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
