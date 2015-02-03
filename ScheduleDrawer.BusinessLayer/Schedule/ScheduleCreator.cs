@@ -77,7 +77,7 @@ namespace ScheduleDrawer.BusinessLayer
             }
         }
 
-        private static IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
+        private IEnumerable<Match> DrawSchedule(IEnumerable<Match> allCombinations)
         {
             var combinations = allCombinations.ToList();
             var schedule = new List<Match>();
