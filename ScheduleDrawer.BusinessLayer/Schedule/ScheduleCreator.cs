@@ -112,6 +112,8 @@ namespace ScheduleDrawer.BusinessLayer
                 }
             }
 
+            schedule.RemoveAll(match => string.IsNullOrEmpty(match.Home.Name) || string.IsNullOrEmpty(match.Away.Name));
+
             return schedule.OrderBy(m => m.Round).Where(m => m.Home != null && m.Away != null);
         }
 
